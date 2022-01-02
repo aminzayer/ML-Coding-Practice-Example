@@ -8,26 +8,26 @@ Specific Hypothesis
 
 ## Description
 
-1. Concept Learning 
+## 1. Concept Learning 
 Let’s try to understand concept learning with a real-life example. Most of human learning is based on past instances or experiences. For example, we are able to identify any type of vehicle based on a certain set of features like make, model, etc., that are defined over a large set of features.
 
 These special features differentiate the set of cars, trucks, etc from the larger set of vehicles. These features that define the set of cars, trucks, etc are known as concepts.
 
 Similar to this, machines can also learn from concepts to identify whether an object belongs to a specific category or not. Any algorithm that supports concept learning requires the following:
 
-Training Data
-Target Concept
-Actual Data Objects
+#### Training Data
+#### Target Concept
+#### Actual Data Objects
 
 If you want to learn AI-ML in-depth, come to us and sign up for this Post Graduate Diploma Artificial Intelligence Online Course at Edureka.
 
-2. General Hypothesis
+## 2. General Hypothesis
 
 Hypothesis, in general, is an explanation for something. The general hypothesis basically states the general relationship between the major variables. For example, a general hypothesis for ordering food would be I want a burger.
 
 G = { ‘?’, ‘?’, ‘?’, …..’?’}
 
-3. Specific Hypothesis
+## 3. Specific Hypothesis
 
 The specific hypothesis fills in all the important details about the variables given in the general hypothesis. The more specific details into the example given above would be I want a cheeseburger with a chicken pepperoni filling with a lot of lettuce. 
 Course Curriculum
@@ -42,7 +42,7 @@ The Find-S algorithm only considers the positive examples and eliminates negativ
 
 Now that we are done with the basic explanation of the Find-S algorithm, let us take a look at how it works.
 
-How Does It Work?
+# How Does It Work?
 
 ![how it work pic](https://d1jnx9ba8s6j9r.cloudfront.net/blog/wp-content/uploads/2019/12/flow.png)
 
@@ -55,7 +55,7 @@ If the value does not match, the value is changed to ‘?’.
 We do this until we reach the last positive example in the data set.
 
  
-Limitations of Find-S Algorithm
+## Limitations of Find-S Algorithm
 
 There are a few limitations of the Find-S algorithm listed down below:
 
@@ -66,11 +66,11 @@ Find-S algorithm does not provide a backtracking technique to determine the best
 Now that we are aware of the limitations of the Find-S algorithm, let us take a look at a practical implementation of the Find-S Algorithm.
 
  
-Implementation of Find-S Algorithm
+## Implementation of Find-S Algorithm
 
 To understand the implementation, let us try to implement it to a smaller data set with a bunch of examples to decide if a person wants to go for a walk.
 
-The concept of this particular problem will be on what days does a person likes to go on walk.
+### The concept of this particular problem will be on what days does a person likes to go on walk.
 Time	Weather	Temperature	Company	Humidity	Wind	Goes
 Morning	Sunny	Warm	    Yes	Mild	Strong	Yes
 Evening	Rainy	Cold	    No	Mild	Normal	No
