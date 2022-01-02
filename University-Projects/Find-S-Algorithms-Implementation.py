@@ -23,8 +23,6 @@ target = np.array(data)[:, -1]
 print("n The target is: ", target)
 
 # training function to implement find-s algorithm
-
-
 def train(c, t):
     for i, val in enumerate(t):
         if val == "Yes":
@@ -38,9 +36,29 @@ def train(c, t):
                     specific_hypothesis[x] = '?'
                 else:
                     pass
+        print("level ",i," ",specific_hypothesis)
 
     return specific_hypothesis
 
+
+# obtaining the final hypothesis
+print("n The final hypothesis is:", train(d, target))
+
+# New DataFrame For test
+data = pd.DataFrame([['a1', 'b2', 'c1', 'd3', 'e2', 'f1', 'Yes'],
+                     ['a1', 'b2', 'c2', 'd3', 'e1', 'f1', 'No'],
+                     ['a1', 'b3', 'c1', 'd3', 'e1', 'f1', 'Yes'],
+                     ['a1', 'b1', 'c1', 'd3', 'e3', 'f1', 'Yes'],
+                     ['a2', 'b2', 'c1', 'd3', 'e3', 'f3', 'Yes']],
+                    columns=['A', 'B', 'C', 'D', 'E', 'F', 'Target'])
+
+# making an array of all the attributes
+d = np.array(data)[:, :-1]
+print("n The attributes are: ", d)
+
+# segragating the target that has positive and negative examples
+target = np.array(data)[:, -1]
+print("n The target is: ", target)
 
 # obtaining the final hypothesis
 print("n The final hypothesis is:", train(d, target))
