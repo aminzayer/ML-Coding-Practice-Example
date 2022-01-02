@@ -1,3 +1,4 @@
+# Find-S Algorithm with Display solutions at each step
 import pandas as pd
 import numpy as np
 
@@ -36,6 +37,7 @@ def train(c, t):
                     specific_hypothesis[x] = '?'
                 else:
                     pass
+        # Display solutions at each step
         print("level ",i," ",specific_hypothesis)
 
     return specific_hypothesis
