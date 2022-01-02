@@ -2,9 +2,9 @@
 What is Find-S Algorithm in Machine Learning?
 In order to understand Find-S algorithm, you need to have a basic idea of the following concepts as well:
 
-    Concept Learning
-    General Hypothesis
-    Specific Hypothesis
+Concept Learning
+General Hypothesis
+Specific Hypothesis
 
 ## Description
 
@@ -15,9 +15,9 @@ These special features differentiate the set of cars, trucks, etc from the large
 
 Similar to this, machines can also learn from concepts to identify whether an object belongs to a specific category or not. Any algorithm that supports concept learning requires the following:
 
-    Training Data
-    Target Concept
-    Actual Data Objects
+Training Data
+Target Concept
+Actual Data Objects
 
 If you want to learn AI-ML in-depth, come to us and sign up for this Post Graduate Diploma Artificial Intelligence Online Course at Edureka.
 
@@ -37,8 +37,8 @@ Now ,let’s talk about the Find-S Algorithm in Machine Learning.
 
 The Find-S algorithm follows the steps written below:
 
-    Initialize ‘h’ to the most specific hypothesis.
-    The Find-S algorithm only considers the positive examples and eliminates negative examples. For each positive example, the algorithm checks for each attribute in the example. If the attribute value is the same as the hypothesis value, the algorithm moves on without any changes. But if the attribute value is different than the hypothesis value, the algorithm changes it to ‘?’.
+Initialize ‘h’ to the most specific hypothesis.
+The Find-S algorithm only considers the positive examples and eliminates negative examples. For each positive example, the algorithm checks for each attribute in the example. If the attribute value is the same as the hypothesis value, the algorithm moves on without any changes. But if the attribute value is different than the hypothesis value, the algorithm changes it to ‘?’.
 
 Now that we are done with the basic explanation of the Find-S algorithm, let us take a look at how it works.
 
@@ -47,21 +47,21 @@ How Does It Work?
 ![how it work pic](https://d1jnx9ba8s6j9r.cloudfront.net/blog/wp-content/uploads/2019/12/flow.png)
 
 
-    The process starts with initializing ‘h’ with the most specific hypothesis, generally, it is the first positive example in the data set.
-    We check for each positive example. If the example is negative, we will move on to the next example but if it is a positive example we will consider it for the next step.
-    We will check if each attribute in the example is equal to the hypothesis value.
-    If the value matches, then no changes are made.
-    If the value does not match, the value is changed to ‘?’.
-    We do this until we reach the last positive example in the data set.
+The process starts with initializing ‘h’ with the most specific hypothesis, generally, it is the first positive example in the data set.
+We check for each positive example. If the example is negative, we will move on to the next example but if it is a positive example we will consider it for the next step.
+We will check if each attribute in the example is equal to the hypothesis value.
+If the value matches, then no changes are made.
+If the value does not match, the value is changed to ‘?’.
+We do this until we reach the last positive example in the data set.
 
  
 Limitations of Find-S Algorithm
 
 There are a few limitations of the Find-S algorithm listed down below:
 
-    There is no way to determine if the hypothesis is consistent throughout the data.
-    Inconsistent training sets can actually mislead the Find-S algorithm, since it ignores the negative examples.
-    Find-S algorithm does not provide a backtracking technique to determine the best possible changes that could be done to improve the resulting hypothesis.
+There is no way to determine if the hypothesis is consistent throughout the data.
+Inconsistent training sets can actually mislead the Find-S algorithm, since it ignores the negative examples.
+Find-S algorithm does not provide a backtracking technique to determine the best possible changes that could be done to improve the resulting hypothesis.
 
 Now that we are aware of the limitations of the Find-S algorithm, let us take a look at a practical implementation of the Find-S Algorithm.
 
