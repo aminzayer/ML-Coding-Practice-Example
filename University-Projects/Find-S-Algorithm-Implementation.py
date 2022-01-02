@@ -24,6 +24,8 @@ target = np.array(data)[:, -1]
 print("n The target is: ", target)
 
 # training function to implement find-s algorithm
+
+
 def train(c, t):
     for i, val in enumerate(t):
         if val == "Yes":
@@ -38,7 +40,7 @@ def train(c, t):
                 else:
                     pass
         # Display solutions at each step
-        print("level ",i," ",specific_hypothesis)
+        print("level ", i, " ", specific_hypothesis)
 
     return specific_hypothesis
 

@@ -57,6 +57,7 @@ def learn(concepts, target):
 # print("Final Specific_h: ", s_final, sep="\n")
 # print("Final General_h: ", g_final, sep="\n")
 
+
 # New DataFrame For test
 data = pd.DataFrame([['a1', 'b2', 'c1', 'd3', 'e2', 'f1', 'Yes'],
                      ['a1', 'b2', 'c2', 'd3', 'e1', 'f1', 'No'],
