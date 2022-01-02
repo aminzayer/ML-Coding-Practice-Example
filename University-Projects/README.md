@@ -108,6 +108,26 @@ h2 = {‘?’, ‘Sunny’, ‘?’, ‘Yes’, ‘?’, ‘?’}
 
 We replaced all the different values in the general hypothesis to get a resultant hypothesis. Now that we know how the Find-S algorithm works, let us take a look at an implementation using Python.
 
+## Inductive Bias in Machine Learning
+
+
+Inductive bias refers to the restrictions that are imposed by the assumptions made in the learning method.
+
+For example, assuming that the solution to the problem of road safety can be expressed as a conjunction of a set of eight concepts.
+
+This does not allow for more complex expressions that cannot be expressed as conjunction.
+
+This inductive bias means that there are some potential solutions that we cannot explore, and not contained within the version space we examine.
+
+In order to have an unbiased learner, the version space would have to contain every possible hypothesis that could possibly be expressed.
+
+The solution that the learner produced could never be more general than the complete set of training data.
+
+In other words, it would be able to classify data that it had previously seen (as the rote learner could) but would be unable to generalize in order to classify new, unseen data.
+
+The inductive bias of the candidate elimination algorithm is that it is only able to classify a new piece of data if all the hypotheses contained within its version space give data the same classification.
+
+Hence, the inductive bias does not impose a limitation on the learning method.
 
 
 ## Getting Started
