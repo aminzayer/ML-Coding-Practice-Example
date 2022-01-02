@@ -9,19 +9,19 @@ Specific Hypothesis
 ## Learning algorithms used in Inductive Bias are -
 
 ### Rote-Learner:
-      Learning corresponds to storing each observed training example in memory.
-      Subsequent instances are classified by looking them up in the memory.
-      If the instance is found in memory, the stored classification is returned.
-      Otherwise, the system refuses to classify the new instance.
-      Inductive Bias: There is no inductive bias.
+Learning corresponds to storing each observed training example in memory.
+Subsequent instances are classified by looking them up in the memory.
+If the instance is found in memory, the stored classification is returned.
+Otherwise, the system refuses to classify the new instance.
+Inductive Bias: There is no inductive bias.
 ### Candidate-Elimination:
-      New instances are predicted/classified only in the case where all members of the current version space agree on the classification.
-      Otherwise, the system refuses to classify the new, instance.
-      Inductive Bias: The target concept can be represented in its hypothesis space.
+New instances are predicted/classified only in the case where all members of the current version space agree on the classification.
+Otherwise, the system refuses to classify the new, instance.
+Inductive Bias: The target concept can be represented in its hypothesis space.
 ### FIND-S:
-      This algorithm finds the most specific hypothesis consistent with training examples.
-      It then uses this hypothesis to classify all subsequent instances.
-      Inductive Bias: The target concept can be represented in its hypothesis space, and all instances are negative instances unless the opposite is entailed by its other knowledge.
+This algorithm finds the most specific hypothesis consistent with training examples.
+It then uses this hypothesis to classify all subsequent instances.
+Inductive Bias: The target concept can be represented in its hypothesis space, and all instances are negative instances unless the opposite is entailed by its other knowledge.
 
 ## Description
 
