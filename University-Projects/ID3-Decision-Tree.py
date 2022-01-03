@@ -1,17 +1,25 @@
 import pandas as pd
 import numpy as np
 
+
 def calc_total_entropy(train_data, label, class_list):
     total_row = train_data.shape[0]
     total_entr = 0
+    total_class_print = ""
+    total_Entropy_print = ""
 
     for c in class_list:
         total_class_count = train_data[train_data[label] == c].shape[0]
         total_class_entr = - (total_class_count/total_row) * \
             np.log2(total_class_count/total_row)
+        total_class_print = " - (" + str(total_class_count) + "/" + str(
+            total_row) + ")log("+str(total_class_count) + "/" + str(total_row)+")"
+        total_Entropy_print += total_class_print
         total_entr += total_class_entr
 
+    print("Total Entropy =", total_Entropy_print, " = ", total_entr)
     return total_entr
+
 
 def calc_entropy(feature_value_data, label, class_list):
     class_count = feature_value_data.shape[0]
@@ -29,6 +37,7 @@ def calc_entropy(feature_value_data, label, class_list):
 
     return entropy
 
+
 def calc_info_gain(feature_name, train_data, label, class_list):
     feature_value_list = train_data[feature_name].unique()
     total_row = train_data.shape[0]
@@ -45,6 +54,7 @@ def calc_info_gain(feature_name, train_data, label, class_list):
 
     return calc_total_entropy(train_data, label, class_list) - feature_info
 
+
 def find_most_informative_feature(train_data, label, class_list):
     feature_list = train_data.columns.drop(label)
     max_info_gain = -1
@@ -58,6 +68,7 @@ def find_most_informative_feature(train_data, label, class_list):
             max_info_feature = feature
 
     return max_info_feature
+
 
 def generate_sub_tree(feature_name, train_data, label, class_list):
     feature_value_count_dict = train_data[feature_name].value_counts(
@@ -82,6 +93,7 @@ def generate_sub_tree(feature_name, train_data, label, class_list):
 
     return tree, train_data
 
+
 def make_tree(root, prev_feature_value, train_data, label, class_list):
     if train_data.shape[0] != 0:
         max_info_feature = find_most_informative_feature(
@@ -104,6 +116,7 @@ def make_tree(root, prev_feature_value, train_data, label, class_list):
                 make_tree(next_root, node, feature_value_data,
                           label, class_list)
 
+
 def id3(train_data_m, label):
     train_data = train_data_m.copy()
     tree = {}
@@ -111,6 +124,7 @@ def id3(train_data_m, label):
     make_tree(tree, None, train_data_m, label, class_list)
 
     return tree
+
 
 def predict(tree, instance):
     if not isinstance(tree, dict):
@@ -122,6 +136,7 @@ def predict(tree, instance):
             return predict(tree[root_node][feature_value], instance)
         else:
             return None
+
 
 def evaluate(tree, test_data_m, label):
     correct_preditct = 0
@@ -163,4 +178,4 @@ class_label = np.array(train_data_m)[:, -1]
 #print("\n Class : \n", class_label)
 
 tree = id3(train_data_m, 'Class')
-print (tree)
+print(tree)
