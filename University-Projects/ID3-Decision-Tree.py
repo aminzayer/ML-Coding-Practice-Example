@@ -42,6 +42,9 @@ def calc_info_gain(feature_name, train_data, label, class_list):
     feature_value_list = train_data[feature_name].unique()
     total_row = train_data.shape[0]
     feature_info = 0.0
+    Entropy_Total_Root = calc_total_entropy(train_data, label, class_list)
+    print("Gain Label of (", feature_name, " = ", feature_value_list, ") = ", Entropy_Total_Root -
+          feature_info, " - [", end=" "),
 
     for feature_value in feature_value_list:
         feature_value_data = train_data[train_data[feature_name]
@@ -51,8 +54,11 @@ def calc_info_gain(feature_name, train_data, label, class_list):
             feature_value_data, label, class_list)
         feature_value_probability = feature_value_count/total_row
         feature_info += feature_value_probability * feature_value_entropy
-
-    return calc_total_entropy(train_data, label, class_list) - feature_info
+        print(" (", str(feature_value_count), "/",
+              total_row, " ) x (Entropy (", feature_value, ")=", feature_value_entropy, ") + ", end=" "),
+    
+    print("] = ", Entropy_Total_Root - feature_info )
+    return Entropy_Total_Root - feature_info
 
 
 def find_most_informative_feature(train_data, label, class_list):
@@ -66,7 +72,9 @@ def find_most_informative_feature(train_data, label, class_list):
         if max_info_gain < feature_info_gain:
             max_info_gain = feature_info_gain
             max_info_feature = feature
-
+    print("------------------------------------")
+    print ("Max Feature is = ",max_info_feature)
+    print("------------------------------------")
     return max_info_feature
 
 
