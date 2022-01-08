@@ -84,18 +84,39 @@ def Dice_Distance(x, y):
           denominator, ") = ", 1 - (2*intersection_cardinality)/denominator)
     return 1 - (2*intersection_cardinality)/denominator
 
+
 def N_Jaccard_simlilarity_Distance(x, y):
-    X_Y=sum((a*b) for a, b in zip(x, y))
-    X2_Y2 =sum(pow(a,2) for a in x)+sum(pow(b,2) for b in y)
+    X_Y = sum((a*b) for a, b in zip(x, y))
+    X2_Y2 = sum(pow(a, 2) for a in x)+sum(pow(b, 2) for b in y)
     print("Numerical Jaccard similarity is =  (", X_Y,
           ") / (", X2_Y2, ") - (", X_Y, ") = ", X_Y, "/", X2_Y2 - X_Y, end=" = ")
     return X_Y / (X2_Y2 - X_Y), "Distance is = 1- Simlilarity = " + str(1 - (X_Y / (X2_Y2 - X_Y)))
 
 
+def N_Dice_simlilarity_Distance(x, y):
+    X_Y = sum((a*b) for a, b in zip(x, y))
+    X2_Y2_P2 = sum(pow(a, 2) for a in x)+sum(pow(b, 2) for b in y)
+    print("Numerical Dice similarity is = 2 * (", X_Y,
+          ") / (", X2_Y2_P2, ") = ", 2 * X_Y, "/", X2_Y2_P2, end=" = ")
+    return (2 * X_Y) / (X2_Y2_P2), "Distance is = 1- Simlilarity = " + str(1 - (X_Y / X2_Y2_P2))
 
-s1 = [2, 1, 3]
-s2 = [2, 1, 1]
+
+def N_Cosine_simlilarity_Distance(x, y):
+    X_Y = sum((a*b) for a, b in zip(x, y))
+    SX2 = sqrt(sum(pow(a, 2) for a in x))
+    SY2 = sqrt(sum(pow(b, 2) for b in y))
+    print("Numerical Cosine similarity is = (", X_Y,
+          ") / (", SX2, " * ", SY2, ") = ", X_Y, "/", SX2*SY2, end=" = ")
+    return (X_Y) / (SX2*SY2), "Distance is = 1- Simlilarity = " + str(1 - (X_Y / SX2*SY2))
+
+def K_Means_Algo():
+
+    return
+s1 = [2, 1, 1, 1]
+s2 = [1, 3, 0, 2]
 print(N_Jaccard_simlilarity_Distance(s1, s2))
+print(N_Dice_simlilarity_Distance(s1, s2))
+print(N_Cosine_simlilarity_Distance(s1, s2))
 
 
 # Test Function
