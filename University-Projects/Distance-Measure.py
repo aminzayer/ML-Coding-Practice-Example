@@ -109,9 +109,6 @@ def N_Cosine_simlilarity_Distance(x, y):
           ") / (", SX2, " * ", SY2, ") = ", X_Y, "/", SX2*SY2, end=" = ")
     return (X_Y) / (SX2*SY2), "Distance is = 1- Simlilarity = " + str(1 - (X_Y / SX2*SY2))
 
-def K_Means_Algo():
-
-    return
 s1 = [2, 1, 1, 1]
 s2 = [1, 3, 0, 2]
 print(N_Jaccard_simlilarity_Distance(s1, s2))
@@ -120,44 +117,44 @@ print(N_Cosine_simlilarity_Distance(s1, s2))
 
 
 # Test Function
-# def Test_jaccard_similarity():
-#     if jaccard_similarity(["A", "B", "C"], ["A", "B", "C"])== 1:
-#         print ("\n1 Test Was Passed")
-#     else:
-#         print("\n1 Test Was Not Passed")
+def Test_jaccard_similarity():
+    if jaccard_similarity(["A", "B", "C"], ["A", "B", "C"])== 1:
+        print ("\n1 Test Was Passed")
+    else:
+        print("\n1 Test Was Not Passed")
 
-#     if jaccard_similarity(["A", "B", "C"], ["E", "D", "F"]) == 0:
-#         print("\n2 Test Was Passed")
-#     else:
-#         print("\n2 Test Was Not Passed")
+    if jaccard_similarity(["A", "B", "C"], ["E", "D", "F"]) == 0:
+        print("\n2 Test Was Passed")
+    else:
+        print("\n2 Test Was Not Passed")
 
-# Test_jaccard_similarity()
+Test_jaccard_similarity()
 
 
 # Test Data
-#print(euclidean_distance([2, 0, 1, 2], [1, 1, 1, 1]))
-#print(manhattan_distance([2, 0, 1, 2], [1, 1, 1, 1]))
-#print(minkowski_distance([2, 0, 1, 2], [1, 1, 1, 1], 1))
-#print(jaccard_similarity([2, 0, 1, 2], [1, 1, 1, 1]))
-# jaccard_similarity(["A", "B", "C"], ["A", "D", "E", "F"])
-# Jaccard_Distance(["A", "B", "C"], ["A", "D", "E", "F"])
+print(euclidean_distance([2, 0, 1, 2], [1, 1, 1, 1]))
+print(manhattan_distance([2, 0, 1, 2], [1, 1, 1, 1]))
+print(minkowski_distance([2, 0, 1, 2], [1, 1, 1, 1], 1))
+print(jaccard_similarity([2, 0, 1, 2], [1, 1, 1, 1]))
+jaccard_similarity(["A", "B", "C"], ["A", "D", "E", "F"])
+Jaccard_Distance(["A", "B", "C"], ["A", "D", "E", "F"])
 
-# Dice_similarity(["A", "B", "C"], ["A", "B","D","E","F"])
-# Dice_Distance(["A", "B", "C"], ["A", "B", "D", "E", "F"])
-# Cosine_similarity(["A", "B", "C"], ["A", "B", "D", "E", "F"])
-# Cosine_Distance(["A", "B", "C"], ["A", "B", "D", "E", "F"])
-#print(jaccard_similarity(["A", "B", "C"], ["A", "B", "C"]))
-#print(jaccard_similarity(["A", "B", "C"], ["D", "E", "F"]))
-#X = ["A", "B", "C"]
-#Y = ["A", "B", "C"]
-#X = ["A", "B", "C"]
-#Y = ["D", "E", "F"]
+Dice_similarity(["A", "B", "C"], ["A", "B","D","E","F"])
+Dice_Distance(["A", "B", "C"], ["A", "B", "D", "E", "F"])
+Cosine_similarity(["A", "B", "C"], ["A", "B", "D", "E", "F"])
+Cosine_Distance(["A", "B", "C"], ["A", "B", "D", "E", "F"])
+print(jaccard_similarity(["A", "B", "C"], ["A", "B", "C"]))
+print(jaccard_similarity(["A", "B", "C"], ["D", "E", "F"]))
+X = ["A", "B", "C"]
+Y = ["A", "B", "C"]
+X = ["A", "B", "C"]
+Y = ["D", "E", "F"]
 
-# X = [2, 1, 1, 1]
-# Y = [1, 3, 0, 2]
-# jaccard_similarity(X, Y)
-# Jaccard_Distance(X, Y)
-# Dice_similarity(X, Y)
-# Dice_Distance(X, Y)
-# Cosine_similarity(X, Y)
-# Cosine_Distance(X, Y)
+X = [2, 1, 1, 1]
+Y = [1, 3, 0, 2]
+jaccard_similarity(X, Y)
+Jaccard_Distance(X, Y)
+Dice_similarity(X, Y)
+Dice_Distance(X, Y)
+Cosine_similarity(X, Y)
+Cosine_Distance(X, Y)
