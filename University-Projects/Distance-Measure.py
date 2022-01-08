@@ -84,6 +84,19 @@ def Dice_Distance(x, y):
           denominator, ") = ", 1 - (2*intersection_cardinality)/denominator)
     return 1 - (2*intersection_cardinality)/denominator
 
+def N_Jaccard_simlilarity_Distance(x, y):
+    X_Y=sum((a*b) for a, b in zip(x, y))
+    X2_Y2 =sum(pow(a,2) for a in x)+sum(pow(b,2) for b in y)
+    print("Numerical Jaccard similarity is =  (", X_Y,
+          ") / (", X2_Y2, ") - (", X_Y, ") = ", X_Y, "/", X2_Y2 - X_Y, end=" = ")
+    return X_Y / (X2_Y2 - X_Y), "Distance is = 1- Simlilarity = " + str(1 - (X_Y / (X2_Y2 - X_Y)))
+
+
+
+s1 = [2, 1, 3]
+s2 = [2, 1, 1]
+print(N_Jaccard_simlilarity_Distance(s1, s2))
+
 
 # Test Function
 # def Test_jaccard_similarity():
@@ -119,11 +132,11 @@ def Dice_Distance(x, y):
 #X = ["A", "B", "C"]
 #Y = ["D", "E", "F"]
 
-X = [2, 1, 1, 1]
-Y = [1, 3, 0, 2]
-jaccard_similarity(X, Y)
-Jaccard_Distance(X, Y)
-Dice_similarity(X, Y)
-Dice_Distance(X, Y)
-Cosine_similarity(X, Y)
-Cosine_Distance(X, Y)
+# X = [2, 1, 1, 1]
+# Y = [1, 3, 0, 2]
+# jaccard_similarity(X, Y)
+# Jaccard_Distance(X, Y)
+# Dice_similarity(X, Y)
+# Dice_Distance(X, Y)
+# Cosine_similarity(X, Y)
+# Cosine_Distance(X, Y)
