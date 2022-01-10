@@ -43,9 +43,14 @@ def learn(concepts, target):
                     general_h[x][x] = specific_h[x]
                 else:
                     general_h[x][x] = '?'
+        print("\nClass Target is : ", target[i], "\n specific_h : \n", specific_h,
+              "\n general_h : \n", general_h, "\n")
 
     indices = [i for i, val in enumerate(general_h) if val == [
         '?', '?', '?', '?', '?', '?']]
+    
+    print("Final Level Removing :\n specific_h : \n", specific_h,
+          "\n general_h : \n", general_h, "\n")
 
     for i in indices:
         general_h.remove(['?', '?', '?', '?', '?', '?'])
@@ -78,7 +83,8 @@ print("Final General_h: ", g_final, sep="\n")
 
 
 # read Dataset for test
-data = pd.DataFrame(pd.read_csv('find-s.csv'))
+data = pd.DataFrame(pd.read_csv(
+    'ML-Coding-Practice-Example/University-Projects/find-s.csv'))
 concepts = np.array(data.iloc[:, :-1])
 target = np.array(data.iloc[:, -1])
 
