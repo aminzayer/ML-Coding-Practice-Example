@@ -34,7 +34,6 @@ def calc_entropy(feature_value_data, label, class_list):
             entropy_class = - probability_class * np.log2(probability_class)
 
         entropy += entropy_class
-
     return entropy
 
 
@@ -177,6 +176,19 @@ def evaluate(tree, test_data_m, label):
 # importing the dataset from the disk
 train_data_m = pd.read_csv(
     "ML-Coding-Practice-Example/University-Projects/dataset.csv")
+
+# making an array of all the attributes
+data = np.array(train_data_m)
+#print("\n Attributes : \n", data)
+
+class_label = np.array(train_data_m)[:, -1]
+#print("\n Class : \n", class_label)
+
+tree = id3(train_data_m, 'Class')
+print(tree)
+
+train_data_m = pd.read_csv(
+    "ML-Coding-Practice-Example/University-Projects/Car-Example.csv")
 
 # making an array of all the attributes
 data = np.array(train_data_m)
