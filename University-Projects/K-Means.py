@@ -102,3 +102,25 @@ centroids = pd.DataFrame([[1, 0, 1],
 clustered, cent = k_means_fit(data, centroids, n=3)
 print(cent)
 print(clustered)
+
+
+data = pd.DataFrame([[1, 1, 4],
+                     [2, 2, 1],
+                     [7, 5, 6],
+                     [6, 5, 5],
+                     [1, 0, 2],
+                     [9, 8, 7],
+                     [4, 5, 7],
+                     [2, 1, 2]],
+                    columns=['F1', 'F2', 'F3'])
+
+
+#centroids = get_random_centroids(data, k=2)
+# Set Manual centroids
+centroids = pd.DataFrame([[1, 1, 4],
+                          [2, 2, 1]],
+                         columns=['F1', 'F2', 'F3'])
+# print(centroids)
+clustered, cent = k_means_fit(data, centroids, n=2)
+print(cent)
+print(clustered)
