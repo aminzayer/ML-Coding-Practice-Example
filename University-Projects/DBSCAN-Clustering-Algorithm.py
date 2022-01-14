@@ -15,9 +15,7 @@
 #     An array with either a cluster id number or dbscan.NOISE (None) for each
 #     column vector in m.
 
-import pandas as pd
 import numpy as np
-import math
 
 UNCLASSIFIED = False
 NOISE = None
