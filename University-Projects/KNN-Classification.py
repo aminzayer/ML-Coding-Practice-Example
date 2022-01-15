@@ -3,6 +3,13 @@ from statistics import mean
 from sklearn.model_selection import train_test_split
 import numpy as np
 import pandas as pd
+import os
+
+def clearConsole():
+    command = 'clear'
+    if os.name in ('nt', 'dos'):  # If Machine is running on Windows, use cls
+        command = 'cls'
+    os.system(command)
 
 class KNN():
     def __init__(self, k):
@@ -49,8 +56,10 @@ class KNN():
         predictions = []
         return predictions
 
+# Clear Output
+clearConsole()
 
-data = pd.DataFrame([[3, 7, '+'],
+data1 = pd.DataFrame([[3, 7, '+'],
                      [4, 6, '+'],
                      [2, 1, '-'],
                      [1, 1, '-'],
@@ -59,24 +68,39 @@ data = pd.DataFrame([[3, 7, '+'],
                      [3, 0, '-'],
                      [2, 4, '-'],
                      [8, 8, '+'], ],
-                    columns=['F1', 'F2', 'Class'])
+                     columns=['F1', 'F2', 'Class'])
 
-Test_data = pd.DataFrame([[2, 5, '?'],
+Test_data1 = pd.DataFrame([[2, 5, '?'],
                           [3, 4, '?'], ],
-                         columns=['F1', 'F2', 'Class'])
+                          columns=['F1', 'F2', 'Class'])
 
-X = np.array(data)[:, 0:2]
+data = pd.DataFrame([[3, 4, 5, '1'],
+                     [6, 9, 7, '2'],
+                     [2, 4, 5, '1'],
+                     [1, 3, 2, '1'],
+                     [7, 7, 7, '2'],
+                     [5, 6, 7, '2'],
+                     [4, 4, 8, '2'],
+                     [2, 2, 3, '1'],
+                     [3, 5, 1, '1'], ],
+                    columns=['F1', 'F2', 'F3', 'Class'])
+
+Test_data = pd.DataFrame([[6, 3, 2, '?'],
+                          [5, 5, 5, '?'], ],
+                         columns=['F1', 'F2', 'F3', 'Class'])
+
+X = np.array(data)[:, 0:3]
 print("\nInstances are:\n", X)
 y = np.array(data)[:, -1]
 print("\nTarget Values are: \n", y)
 model = KNN(3)  # our model
 model.fit(X, y)
-X_test = np.array(Test_data)[:, 0:2]
+X_test = np.array(Test_data)[:, 0:3]
 print("\nTest Values are: \n", X_test)
 predictions_KNN = model.predict(X_test)
 print("\nKNN Perdiction values are : ", predictions_KNN)
-predictions_KNN_Reg = model.predict_regression(X_test)
-print('\nKNN Regression Perdiction values are : ', predictions_KNN_Reg)
+#predictions_KNN_Reg = model.predict_regression(X_test)
+#print('\nKNN Regression Perdiction values are : ', predictions_KNN_Reg)
 
 # True Positive (TP): True positive represents the value of correct predictions of positives out of actual positive cases
 # Main is True & Predict True ( + => + )
