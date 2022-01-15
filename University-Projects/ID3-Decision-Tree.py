@@ -24,7 +24,7 @@ def calc_total_entropy(train_data, label, class_list):
         total_Entropy_print += total_class_print
         total_entr += total_class_entr
 
-    print("Total Entropy =", total_Entropy_print, " = ", round(total_entr))
+    #print("Total Entropy =", total_Entropy_print, " = ", total_entr)
     return total_entr
 
 
@@ -50,9 +50,9 @@ def calc_info_gain(feature_name, train_data, label, class_list):
     feature_info = 0.0
     Entropy_Total_Root = calc_total_entropy(train_data, label, class_list)
     print("Total Entropy for Root =",
-          label, " = ", round(Entropy_Total_Root))
-    print("Gain Label of (", feature_name, " = ", feature_value_list, ") = ", round(Entropy_Total_Root -
-          feature_info), " - [", end=" "),
+          label, " = ", Entropy_Total_Root)
+    print("Gain Label of (", feature_name, " = ", feature_value_list, ") = ", Entropy_Total_Root -
+          feature_info, " - [", end=" "),
 
     for feature_value in feature_value_list:
         feature_value_data = train_data[train_data[feature_name]
@@ -63,9 +63,9 @@ def calc_info_gain(feature_name, train_data, label, class_list):
         feature_value_probability = feature_value_count/total_row
         feature_info += feature_value_probability * feature_value_entropy
         print(" (", str(feature_value_count), "/",
-              total_row, " ) x (Entropy (", feature_value, ")=", round(feature_value_entropy), ") + ", end=" "),
+              total_row, " ) x (Entropy (", feature_value, ")=", feature_value_entropy, ") + ", end=" "),
     
-    print("] = ", round(Entropy_Total_Root - feature_info) )
+    print("] = ", Entropy_Total_Root - feature_info )
     return Entropy_Total_Root - feature_info
 
 
@@ -183,55 +183,48 @@ def evaluate(tree, test_data_m, label):
 # print("\nInstances are:\n", train_data)
 
 # importing the dataset from the disk
-train_data_m = pd.read_csv(
-    "ML-Coding-Practice-Example/University-Projects/dataset.csv")
+# train_data_m = pd.read_csv(
+#     "ML-Coding-Practice-Example/University-Projects/dataset.csv")
 
-# making an array of all the attributes
-data = np.array(train_data_m)
-#print("\n Attributes : \n", data)
+# # making an array of all the attributes
+# data = np.array(train_data_m)
+# #print("\n Attributes : \n", data)
 
-class_label = np.array(train_data_m)[:, -1]
-#print("\n Class : \n", class_label)
+# class_label = np.array(train_data_m)[:, -1]
+# #print("\n Class : \n", class_label)
 
-tree = id3(train_data_m, 'Class')
-print(tree)
+# tree = id3(train_data_m, 'Class')
+# print(tree)
 
-train_data_m = pd.read_csv(
-    "ML-Coding-Practice-Example/University-Projects/Car-Example.csv")
+# train_data_m = pd.read_csv(
+#     "ML-Coding-Practice-Example/University-Projects/Car-Example.csv")
 
-# making an array of all the attributes
-data = np.array(train_data_m)
-#print("\n Attributes : \n", data)
+# # making an array of all the attributes
+# data = np.array(train_data_m)
+# #print("\n Attributes : \n", data)
 
-class_label = np.array(train_data_m)[:, -1]
-#print("\n Class : \n", class_label)
 
-tree = id3(train_data_m, 'Class')
-print(tree)
+# class_label = np.array(train_data_m)[:, -1]
+# #print("\n Class : \n", class_label)
+
+# tree = id3(train_data_m, 'Class')
+# print(tree)
 
 # Clear Console
 clearConsole()
 
-data = pd.DataFrame([['1', 'A', 'C', 'Y', '+'],
-                     ['1', 'B', 'D', 'Y', '+'],
-                     ['2', 'A', 'E', 'N', '-'],
-                     ['1', 'A', 'E', 'Y', '-'],
-                     ['2', 'B', 'C', 'Y', '+'],
-                     ['3', 'A', 'D', 'N', '+'], 
-                     ['1', 'A', 'D', 'Y', '-'],
-                     ['2', 'B', 'D', 'N', '-'], 
-                     ['1', 'A', 'E', 'Y', '+'],
-                     ['1', 'B', 'C', 'N', '+'],
-                     ['1', 'A', 'D', 'Y', '-'],
-                     ['3', 'A', 'C', 'Y', '-'],
-                     ['3', 'B', 'C', 'N', '+'],],
-                    columns=['F1', 'F2', 'F3', 'F4', 'Class'])
 
-attribute = np.array(data)[:]
-print("\nInstances are:\n", attribute)
-target = np.array(data)[:, -1]
-print("\nTarget Values are: ", target)
-train_data = np.array(data)[:, 0:-1]
-print("\nFeature Data are:\n", train_data)
+train_data_p = pd.read_csv(
+    "ML-Coding-Practice-Example/University-Projects/Data-ID3.csv")
 
-data = np.array(train_data_m)
+print(train_data_p)
+# making an array of all the attributes
+data = np.array(train_data_p)
+#print("\n Attributes : \n", data)
+
+print(train_data_p)
+class_label = np.array(train_data_p)[:, -1]
+#print("\n Class : \n", class_label)
+
+tree = id3(train_data_p, 'Class')
+print(tree)
