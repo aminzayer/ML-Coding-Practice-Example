@@ -1,7 +1,6 @@
 import pandas as pd
 import numpy as np
 
-
 def calc_total_entropy(train_data, label, class_list):
     total_row = train_data.shape[0]
     total_entr = 0
@@ -17,7 +16,7 @@ def calc_total_entropy(train_data, label, class_list):
         total_Entropy_print += total_class_print
         total_entr += total_class_entr
 
-    print("Total Entropy =", total_Entropy_print, " = ", total_entr)
+    print("Total Entropy =", total_Entropy_print, " = ", round(total_entr))
     return total_entr
 
 
@@ -42,8 +41,10 @@ def calc_info_gain(feature_name, train_data, label, class_list):
     total_row = train_data.shape[0]
     feature_info = 0.0
     Entropy_Total_Root = calc_total_entropy(train_data, label, class_list)
-    print("Gain Label of (", feature_name, " = ", feature_value_list, ") = ", Entropy_Total_Root -
-          feature_info, " - [", end=" "),
+    print("Total Entropy for Root =",
+          label, " = ", round(Entropy_Total_Root))
+    print("Gain Label of (", feature_name, " = ", feature_value_list, ") = ", round(Entropy_Total_Root -
+          feature_info), " - [", end=" "),
 
     for feature_value in feature_value_list:
         feature_value_data = train_data[train_data[feature_name]
@@ -54,9 +55,9 @@ def calc_info_gain(feature_name, train_data, label, class_list):
         feature_value_probability = feature_value_count/total_row
         feature_info += feature_value_probability * feature_value_entropy
         print(" (", str(feature_value_count), "/",
-              total_row, " ) x (Entropy (", feature_value, ")=", feature_value_entropy, ") + ", end=" "),
+              total_row, " ) x (Entropy (", feature_value, ")=", round(feature_value_entropy), ") + ", end=" "),
     
-    print("] = ", Entropy_Total_Root - feature_info )
+    print("] = ", round(Entropy_Total_Root - feature_info) )
     return Entropy_Total_Root - feature_info
 
 
