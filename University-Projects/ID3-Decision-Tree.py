@@ -1,5 +1,13 @@
+from turtle import clear
 import pandas as pd
 import numpy as np
+import os
+
+def clearConsole():
+    command = 'clear'
+    if os.name in ('nt', 'dos'):  # If Machine is running on Windows, use cls
+        command = 'cls'
+    os.system(command)
 
 def calc_total_entropy(train_data, label, class_list):
     total_row = train_data.shape[0]
@@ -200,3 +208,30 @@ class_label = np.array(train_data_m)[:, -1]
 
 tree = id3(train_data_m, 'Class')
 print(tree)
+
+# Clear Console
+clearConsole()
+
+data = pd.DataFrame([['1', 'A', 'C', 'Y', '+'],
+                     ['1', 'B', 'D', 'Y', '+'],
+                     ['2', 'A', 'E', 'N', '-'],
+                     ['1', 'A', 'E', 'Y', '-'],
+                     ['2', 'B', 'C', 'Y', '+'],
+                     ['3', 'A', 'D', 'N', '+'], 
+                     ['1', 'A', 'D', 'Y', '-'],
+                     ['2', 'B', 'D', 'N', '-'], 
+                     ['1', 'A', 'E', 'Y', '+'],
+                     ['1', 'B', 'C', 'N', '+'],
+                     ['1', 'A', 'D', 'Y', '-'],
+                     ['3', 'A', 'C', 'Y', '-'],
+                     ['3', 'B', 'C', 'N', '+'],],
+                    columns=['F1', 'F2', 'F3', 'F4', 'Class'])
+
+attribute = np.array(data)[:]
+print("\nInstances are:\n", attribute)
+target = np.array(data)[:, -1]
+print("\nTarget Values are: ", target)
+train_data = np.array(data)[:, 0:-1]
+print("\nFeature Data are:\n", train_data)
+
+data = np.array(train_data_m)
