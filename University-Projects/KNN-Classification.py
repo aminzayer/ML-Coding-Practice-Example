@@ -101,4 +101,4 @@ TN = 1
 FN = 1
 Accuracy = (TP + TN) / (TP+FN+TN+FP)
 print("Accuracy = (TP=", TP, "+", "TN= ", TN, ") / (",
-      "TP=", TP, "+", "FN=", FN, "+", "TN=", TN, "+", "FP=", FP, ") = ", (TP + TN), "/", (TP+FN+TN+FP)," = ", Accuracy)
+      "TP=", TP, "+", "FN=", FN, "+", "TN=", TN, "+", "FP=", FP, ") = ", (TP + TN), "/", (TP+FN+TN+FP)," = ", Accuracy," = %",Accuracy*100 )
