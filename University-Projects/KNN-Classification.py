@@ -3,9 +3,6 @@ from statistics import mean
 from sklearn.model_selection import train_test_split
 import numpy as np
 import pandas as pd
-import math
-import operator
-
 
 class KNN():
     def __init__(self, k):
@@ -50,12 +47,6 @@ class KNN():
 
     def predict_regression(self, test_set):
         predictions = []
-        for test_sample in test_set:
-            neighbors = self.nearest_neighbors(test_sample)
-            labels = [sample for sample in neighbors]
-            print(labels)
-            prediction = max(labels, key=labels.count)
-            predictions.append(prediction)
         return predictions
 
 
@@ -89,7 +80,7 @@ print('\nKNN Regression Perdiction values are : ', predictions_KNN_Reg)
 
 # True Positive (TP): True positive represents the value of correct predictions of positives out of actual positive cases
 # Main is True & Predict True ( + => + )
-TP = 1 
+TP = 1
 # False Positive (FP): False positive represents the value of incorrect positive predictions.
 # Main is False & Predict True ( - => + )
 FP = 2
@@ -99,6 +90,6 @@ TN = 1
 # False Negative (FN): False negative represents the value of incorrect negative predictions.
 # Main is True & Predict Flase ( + => - )
 FN = 1
-Accuracy = (TP + TN) / (TP+FN+TN+FP)
+Accuracy = (TP + TN) / (TP + FN + TN + FP)
 print("Accuracy = (TP=", TP, "+", "TN= ", TN, ") / (",
-      "TP=", TP, "+", "FN=", FN, "+", "TN=", TN, "+", "FP=", FP, ") = ", (TP + TN), "/", (TP+FN+TN+FP)," = ", Accuracy," = %",Accuracy*100 )
+      "TP=", TP, "+", "FN=", FN, "+", "TN=", TN, "+", "FP=", FP, ") = ", (TP + TN), "/", (TP+FN+TN+FP), " = ", Accuracy, " = %", Accuracy*100)
