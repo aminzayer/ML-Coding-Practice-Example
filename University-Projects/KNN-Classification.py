@@ -28,7 +28,7 @@ class KNN():
         for i in range(len(self.x_train)):
             distances.append(
                 (self.y_train[i], self.calculate_Manhattan(self.x_train[i], test_sample)))
-        
+
         print("\nAll Distances from a test sample to every sample in a training set :\n", distances)
         # sort in ascending order, based on a distance value
         distances.sort(key=lambda x: x[1])
@@ -86,3 +86,19 @@ predictions_KNN = model.predict(X_test)
 print("\nKNN Perdiction values are : ", predictions_KNN)
 predictions_KNN_Reg = model.predict_regression(X_test)
 print('\nKNN Regression Perdiction values are : ', predictions_KNN_Reg)
+
+# True Positive (TP): True positive represents the value of correct predictions of positives out of actual positive cases
+# Main is True & Predict True ( + => + )
+TP = 1 
+# False Positive (FP): False positive represents the value of incorrect positive predictions.
+# Main is False & Predict True ( - => + )
+FP = 2
+# True Negative (TN): True negative represents the value of correct predictions of negatives out of actual negative cases.
+# Main is False & Predict False ( - => - )
+TN = 1
+# False Negative (FN): False negative represents the value of incorrect negative predictions.
+# Main is True & Predict Flase ( + => - )
+FN = 1
+Accuracy = (TP + TN) / (TP+FN+TN+FP)
+print("Accuracy = (TP=", TP, "+", "TN= ", TN, ") / (",
+      "TP=", TP, "+", "FN=", FN, "+", "TN=", TN, "+", "FP=", FP, ") = ", (TP + TN), "/", (TP+FN+TN+FP)," = ", Accuracy)
