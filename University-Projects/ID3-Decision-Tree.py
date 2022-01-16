@@ -2,6 +2,7 @@ from turtle import clear
 import pandas as pd
 import numpy as np
 import os
+import json
 
 def clearConsole():
     command = 'clear'
@@ -142,6 +143,13 @@ def id3(train_data_m, label):
     return tree
 
 
+def id3_withLabel(train_data_m, label,feature):
+    train_data = train_data_m.copy()
+    tree = {}
+    class_list = train_data[label].unique()
+    make_tree(tree, feature, train_data_m, label, class_list)
+    return tree
+
 def predict(tree, instance):
     if not isinstance(tree, dict):
         return tree
@@ -227,4 +235,9 @@ class_label = np.array(train_data_p)[:, -1]
 #print("\n Class : \n", class_label)
 
 tree = id3(train_data_p, 'Class')
-print(tree)
+print(json.dumps(tree, indent=1))
+print (tree)
+
+# tree = id3_withLabel (train_data_p,"F1", 'Class')
+# print(json.dumps(tree, indent=1))
+# print(tree)

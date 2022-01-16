@@ -1,12 +1,19 @@
 # Use Hierarchical Algorithm Single & Avrage & Complete Method
+import numpy as np
+from sklearn.metrics.pairwise import pairwise_distances
+import sys
+import os
 import json
 import matplotlib.pyplot as plt
 import warnings
 warnings.filterwarnings("ignore", module="matplotlib")
-import numpy as np
-from sklearn.metrics.pairwise import pairwise_distances
-import sys
 
+
+def clearConsole():
+    command = 'clear'
+    if os.name in ('nt', 'dos'):  # If Machine is running on Windows, use cls
+        command = 'cls'
+    os.system(command)
 
 def hierarchical_clustering(data, linkage, no_of_clusters):
     #first step is to calculate the initial distance matrix
@@ -134,8 +141,9 @@ def find_clusters(input, linkage):
     return clusters
 
 
+clearConsole()
 #Our Dataset
-data = np.array([3, 4, 5, 6, 2, 1, 7,3, 3, 2, 5, 5]).reshape(6, 2)
+data = np.array([4, 3, 1, 5, 8, 3, 6, 8, 5, 9]).reshape(5, 2)
 #data = np.array([1, 2, 3, 1, 7, 5, 3, 3, 8, 8, 3, 9 ,2 ,2]).reshape(7, 2)
 #data = np.array([1, 3, 4, 2, 5, 6, 3, 1, 7, 2, 3, 3]).reshape(6, 2)
 print(data)
