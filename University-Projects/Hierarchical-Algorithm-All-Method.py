@@ -158,9 +158,10 @@ print(data)
 # plt.show()
 
 
-initial_distances = pairwise_distances(data, metric='cityblock')
+# initial_distances = pairwise_distances(data, metric='cityblock')
+initial_distances = np.array([0, 5, 4, 8, 10, 5, 0, 6, 2, 7, 4, 6, 0, 9, 4, 8, 2, 9, 0, 3, 10, 7, 4, 3, 0]).reshape(5, 5)
 print(initial_distances)
 np.fill_diagonal(initial_distances, sys.maxsize)
-clusters = find_clusters(initial_distances, "single")
+clusters = find_clusters(initial_distances, "complete")
 print(json.dumps(clusters, indent=2))
 #plotting the clusters
